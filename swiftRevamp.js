@@ -35,10 +35,10 @@ export async function browserTest() {
     const page = browser.newPage()
 
     await page.goto('https://swiftpwa.testingnow.me/ana-running-short')
-    page.waitForSelector('//div[contains(@class,"container-review-list-label")]', { state: "visible" });
+    page.waitForSelector('//button[@id="plugin-addToCart-btn"]', { state: "visible" });
 
     check(page, {
-        'product name': page => page.locator('//div[contains(@class,"container-review-list-label")]').isVisible() === true
+        'product name': page => page.locator('//button[@id="plugin-addToCart-btn"]').isVisible() === true
     })
 
     page.screenshot({ path: `screenshots/browser-${getCurrentDateTime()}.png`});
